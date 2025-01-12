@@ -1,0 +1,32 @@
+File loaded successfully.
+Columns in the file: Index(['Date', 'GoldPrice', 'EuroInterestRate', 'USDInterestRate'], dtype='object')
+
+Tuning Ridge Regression...
+Alpha: 0.0010, RMSE: 23.9351
+Alpha: 0.0028, RMSE: 24.0036
+Alpha: 0.0077, RMSE: 24.2178
+Alpha: 0.0215, RMSE: 24.9832
+Alpha: 0.0599, RMSE: 28.1432
+Alpha: 0.1668, RMSE: 40.5119
+Alpha: 0.4642, RMSE: 74.2621
+Alpha: 1.2915, RMSE: 131.2363
+Alpha: 3.5938, RMSE: 189.0620
+Alpha: 10.0000, RMSE: 225.9493
+Best Ridge Alpha: 0.001
+
+Tuning Lasso Regression...
+Alpha: 0.0010, RMSE: 23.8989
+Alpha: 0.0028, RMSE: 23.8993
+Alpha: 0.0077, RMSE: 23.9006
+Alpha: 0.0215, RMSE: 23.9040
+Alpha: 0.0599, RMSE: 23.9137
+Alpha: 0.1668, RMSE: 23.9412
+Alpha: 0.4642, RMSE: 24.0220
+Alpha: 1.2915, RMSE: 24.2806
+Alpha: 3.5938, RMSE: 25.2477
+Alpha: 10.0000, RMSE: 29.5382
+Best Lasso Alpha: 0.001
+
+Final Model Performance:
+Ridge - RMSE: 23.9351, MAE: 19.2285, R²: 0.5950
+Lasso - RMSE: 23.8989, MAE: 19.1761, R²: 0.5963

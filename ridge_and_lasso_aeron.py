@@ -2,21 +2,13 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
-# Load data function with debugging
+# Load data
 def load_data(filename):
-    try:
-        # Load Excel file
-        data = pd.read_excel(filename)
-        print("File loaded successfully.")
-        print("Columns in the file:", data.columns)
-
-        # Ensure column names match the dataset
-        X = data[['EuroInterestRate', 'USDInterestRate']].values
-        y = data['GoldPrice'].values
-        return X, y
-    except Exception as e:
-        print(f"Error loading file: {e}")
-        raise
+    data = pd.read_excel(filename)
+    X = data[['EuroInterestRate', 'USDInterestRate']].values
+    y = data['GoldPrice'].values
+    date = pd.to_datetime(data['Date'])
+    return X, y, date
 
 # Standardize features
 def standardize(X):
@@ -75,12 +67,8 @@ def rmse(y_true, y_pred):
 
 # Main function
 if __name__ == "__main__":
-    filename = 'Gold_Interest_Rates.xlsx'  # Replace with your file name
-    try:
-        X, y = load_data(filename)
-        print("Data shape:", X.shape, y.shape)
-    except Exception as e:
-        print("Exiting due to file loading error.")
+    filename = 'Gold_Interest_Rates.xlsx'  # Replace with your data file
+    X, y, date = load_data(filename)
 
     # Standardize features
     X, mean, std = standardize(X)
@@ -89,6 +77,7 @@ if __name__ == "__main__":
     train_size = int(0.8 * len(X))
     X_train, X_test = X[:train_size], X[train_size:]
     y_train, y_test = y[:train_size], y[train_size:]
+    date_test = date[train_size:]  # Corresponding dates for the test set
 
     # Ridge Regression
     alpha_ridge = 0.01
@@ -103,12 +92,14 @@ if __name__ == "__main__":
     print(f"Lasso RMSE: {rmse(y_test, y_pred_lasso):.4f}")
 
     # Plot results
-    plt.figure(figsize=(10, 6))
-    plt.plot(y_test, label="Actual Prices", color='blue')
-    plt.plot(y_pred_ridge, label="Ridge Predictions", color='red', linestyle='--')
-    plt.plot(y_pred_lasso, label="Lasso Predictions", color='green', linestyle='--')
+    plt.figure(figsize=(12, 8))
+    plt.plot(date_test, y_test, label="Actual Prices", color='blue')
+    plt.plot(date_test, y_pred_ridge, label="Ridge Predictions", color='red', linestyle='--')
+    plt.plot(date_test, y_pred_lasso, label="Lasso Predictions", color='green', linestyle='--')
     plt.title("Gold Price Prediction")
     plt.xlabel("Date")
     plt.ylabel("Gold Price")
     plt.legend()
+    plt.xticks(rotation=45)
+    plt.tight_layout()
     plt.show()
