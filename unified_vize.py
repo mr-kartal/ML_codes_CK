@@ -6,8 +6,8 @@ import pandas as pd
 # Load data function
 def load_data(filename):
     data = pd.read_excel(filename)
-    dates = np.arange(len(data))  # Convert dates to sequential integers for simplicity
-    prices = data['Kapanış'].values  # Replace with the correct column name
+    dates = np.arange(len(data))
+    prices = data['Kapanış'].values
     return dates, prices
 
 
@@ -75,15 +75,14 @@ def train_and_plot(dates, prices, period, regression_type='linear', degree=2):
 # Main function
 if __name__ == "__main__":
     # Load the dataset
-    filename = 'GramAltin_5yillikVeri_241106.xlsx'  # Replace with your dataset file
+    filename = 'GramAltin_5yillikVeri_241106.xlsx'
     dates, prices = load_data(filename)
 
-    # TASK 1: Simple Linear Regression
+
     print("Running Simple Linear Regression (Task 1)")
     period = 30  # Set the time period (30 days, 60 days, etc.)
     train_and_plot(dates, prices, period, regression_type='linear')
 
-    # TASK 2: Polynomial Regression
     print("Running Polynomial Regression (Task 2)")
     degree = 3  # Set the polynomial degree (e.g., 2, 3, ..., 8)
     train_and_plot(dates, prices, period, regression_type='polynomial', degree=degree)
