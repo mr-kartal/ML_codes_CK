@@ -26,6 +26,6 @@ data = {
 df = pd.DataFrame(data)
 
 # Save to Excel
-filename = 'Gold_Interest_Rates.xlsx'
+filename = 'Gold_price_Interest_Rates_USD_Euro.xlsx'
 df.to_excel(filename, index=False, sheet_name='Data')
 print(f"Excel file '{filename}' with 500 rows of data created successfully.")

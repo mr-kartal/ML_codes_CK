@@ -94,7 +94,7 @@ def tune_hyperparameters(X_train, y_train, X_test, y_test, regression_func, alph
 
 # Main function
 if __name__ == "__main__":
-    filename = 'Gold_Interest_Rates.xlsx'
+    filename = 'Gold_price_Interest_Rates_USD_Euro.xlsx'
     try:
         X, y, date = load_data(filename)
     except Exception as e:

@@ -75,7 +75,7 @@ def train_and_plot(dates, prices, period, regression_type='linear', degree=2):
 # Main function
 if __name__ == "__main__":
     # Load the dataset
-    filename = 'GramAltin_5yillikVeri_241106.xlsx'
+    filename = 'gold_price_closed.xlsx'
     dates, prices = load_data(filename)
 
 

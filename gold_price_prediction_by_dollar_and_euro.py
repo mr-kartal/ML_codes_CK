@@ -70,7 +70,7 @@ def plot_predictions(dates, actual_prices, predicted_prices, title):
 # Main function
 if __name__ == "__main__":
     # Load the dataset
-    filename = 'Gold_Interest_Rates.xlsx'  # Replace with your dataset file
+    filename = 'Gold_price_Interest_Rates_USD_Euro.xlsx'  # Replace with your dataset file
     X, y, dates = load_data(filename)
 
     # TASK 1: Simple Linear Regression

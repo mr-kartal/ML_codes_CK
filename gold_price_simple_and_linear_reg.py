@@ -84,7 +84,7 @@ def plot_polynomial_regression(dates, prices, polynomial_curves):
 # Main function
 if __name__ == "__main__":
     # Load the dataset
-    filename = 'GramAltin_5yillikVeri_241106.xlsx'
+    filename = 'gold_price_closed.xlsx'
     dates, prices = load_data(filename)
 
     # TASK 1: Simple Linear Regression

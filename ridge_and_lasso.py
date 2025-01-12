@@ -75,7 +75,7 @@ def rmse(y_true, y_pred):
 
 # Main function
 if __name__ == "__main__":
-    filename = 'Gold_Interest_Rates.xlsx'  # Replace with your file name
+    filename = 'Gold_price_Interest_Rates_USD_Euro.xlsx'  # Replace with your file name
     try:
         X, y = load_data(filename)
         print("Data shape:", X.shape, y.shape)

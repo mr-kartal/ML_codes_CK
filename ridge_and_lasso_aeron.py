@@ -67,7 +67,7 @@ def rmse(y_true, y_pred):
 
 # Main function
 if __name__ == "__main__":
-    filename = 'Gold_Interest_Rates.xlsx'  # Replace with your data file
+    filename = 'Gold_price_Interest_Rates_USD_Euro.xlsx'  # Replace with your data file
     X, y, date = load_data(filename)
 
     # Standardize features
